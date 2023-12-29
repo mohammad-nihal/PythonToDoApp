@@ -19,11 +19,14 @@ while True:
             todos = file.readlines()
             file.close()   # always close open files, after processing
 
-            new_todos = []
+            # new_todos = []
 
-            for item in todos:
-                new_item = item.strip('\n')
-                new_todos.append(new_item)
+            # for item in todos:
+            #     new_item = item.strip('\n')
+            #     new_todos.append(new_item)
+
+            # list comprehension achieves the same as the for loop above in a single line
+            new_todos = [item.strip('\n') for item in todos]
 
             for index, item in enumerate(new_todos):
                 row=f"{index + 1 }-{item}"  # f string
