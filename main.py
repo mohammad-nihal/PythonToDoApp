@@ -38,12 +38,28 @@ while True:
         case 'edit':
             number = int(input("Number of the todo to edit: "))
             number -= 1
+
+            with open('Files/todos.txt', 'r') as file:
+                todos = file.readlines()
+
             new_todo = input("Enter new todo: ")
-            todos[number] = new_todo
+            todos[number] = new_todo + '\n'
+
+            with open('Files/todos.txt', 'w') as file:
+                file.writelines(todos)
         case 'complete':
+            with open('Files/todos.txt', 'r') as file:
+                todos = file.readlines()
+
             number = int(input("Number of the todo to complete: "))
             number -= 1
+            todo_to_remove = todos[number].strip('\n')
             todos.pop(number)
+
+            with open('Files/todos.txt', 'w') as file:
+                file.writelines(todos)
+
+            print(f"To do {todo_to_remove} was removed from list.")
         case 'exit':
             break
         case whatever:

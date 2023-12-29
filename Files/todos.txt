@@ -1,6 +1,3 @@
 fix
 throw
 clean
-play
-run
-jump
