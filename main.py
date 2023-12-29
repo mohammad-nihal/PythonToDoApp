@@ -1,5 +1,5 @@
-def get_todos():    #function definition
-    with open('Files/todos.txt', 'r') as file_local:
+def get_todos(filepath):    #function definition
+    with open(filepath, 'r') as file_local:
         todos_local = file_local.readlines()
     return todos_local
 
@@ -17,14 +17,14 @@ while True:
 
         # file handling can be replaced with a with-context manager
         # this will ensure file is closed on completion of required actions
-        todos = get_todos()
+        todos = get_todos('Files/todos.txt')
 
         todos.append(todo)
 
         with open('Files/todos.txt', 'w') as file:
             file.writelines(todos)
     elif 'show' in user_action:
-        todos = get_todos()
+        todos = get_todos('Files/todos.txt')
 
         # new_todos = []
 
@@ -44,7 +44,7 @@ while True:
             number = int(user_action[5:])
             number -= 1
 
-            todos = get_todos()
+            todos = get_todos('Files/todos.txt')
 
             new_todo = input("Enter new todo: ")
             todos[number] = new_todo + '\n'
@@ -56,7 +56,7 @@ while True:
             continue
     elif user_action.startswith('complete'):
         try:
-            todos = get_todos()
+            todos = get_todos('Files/todos.txt')
 
             number = int(user_action[9:])
             number -= 1
