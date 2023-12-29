@@ -1,3 +1,9 @@
+def get_todos():    #function definition
+    with open('Files/todos.txt', 'r') as file_local:
+        todos_local = file_local.readlines()
+    return todos_local
+
+
 while True:
     user_action = input("Type add, show, edit, complete or exit: ")
     user_action = user_action.strip()
@@ -11,16 +17,14 @@ while True:
 
         # file handling can be replaced with a with-context manager
         # this will ensure file is closed on completion of required actions
-        with open('Files/todos.txt', 'r') as file:
-            todos = file.readlines()
+        todos = get_todos()
 
         todos.append(todo)
 
         with open('Files/todos.txt', 'w') as file:
             file.writelines(todos)
     elif 'show' in user_action:
-        with open('Files/todos.txt', 'r') as file:
-            todos = file.readlines()
+        todos = get_todos()
 
         # new_todos = []
 
@@ -40,8 +44,7 @@ while True:
             number = int(user_action[5:])
             number -= 1
 
-            with open('Files/todos.txt', 'r') as file:
-                todos = file.readlines()
+            todos = get_todos()
 
             new_todo = input("Enter new todo: ")
             todos[number] = new_todo + '\n'
@@ -53,8 +56,7 @@ while True:
             continue
     elif user_action.startswith('complete'):
         try:
-            with open('Files/todos.txt', 'r') as file:
-                todos = file.readlines()
+            todos = get_todos()
 
             number = int(user_action[9:])
             number -= 1
