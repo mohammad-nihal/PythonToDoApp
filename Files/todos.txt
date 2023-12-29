@@ -1,3 +1,6 @@
 fix
 clean
 Another new task
+clean the bag
+fix the drawer
+add a file
