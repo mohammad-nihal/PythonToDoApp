@@ -5,17 +5,17 @@ while True:
         case 'add':
             todo = input("Enter a todo: ") + "\n"
 
-            file = open('todos.txt','r')
+            file = open('Files/todos.txt', 'r')
             todos = file.readlines()
             file.close()   # always close open files, after processing
 
             todos.append(todo)
 
-            file = open('todos.txt','w')
+            file = open('Files/todos.txt', 'w') #Path is relative to project directory
             file.writelines(todos)
             file.close()
         case 'show':
-            file = open('todos.txt','r')
+            file = open('Files/todos.txt', 'r')
             todos = file.readlines()
             file.close()   # always close open files, after processing
 
