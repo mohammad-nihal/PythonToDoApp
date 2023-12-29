@@ -26,9 +26,10 @@ while True:
             #     new_todos.append(new_item)
 
             # list comprehension achieves the same as the for loop above in a single line
-            new_todos = [item.strip('\n') for item in todos]
+            #new_todos = [item.strip('\n') for item in todos]
 
-            for index, item in enumerate(new_todos):
+            for index, item in enumerate(todos):
+                item = item.strip('\n')   #alternately, you can add strip here insead of for loop or list comprehension
                 row=f"{index + 1 }-{item}"  # f string
                 print(row)
         case 'edit':
