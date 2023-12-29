@@ -3,3 +3,4 @@ throw
 clean
 play
 run
+jump
