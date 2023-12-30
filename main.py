@@ -1,7 +1,11 @@
 from Functions import functions
+import time
 
 # This was added to illustrate doc streams
 # print(help(functions.get_todos))
+
+now = time.strftime("%b %d, %Y %H:%M:%S")
+print("It is", now)
 
 while True:
     user_action = input("Type add, show, edit, complete or exit: ")
