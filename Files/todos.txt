@@ -1,6 +1,2 @@
-fix
-clean again
-Another new task
-clean the bag
-fix the drawer
-add a file
+clean
+throw
