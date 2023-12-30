@@ -1,9 +1,9 @@
-def get_todos(filepath):    #function definition
+def get_todos(filepath='Files/todos.txt'):    #function definition
     with open(filepath, 'r') as file_local:
         todos_local = file_local.readlines()
     return todos_local
 
-def write_todos(filepath, todos_arg):
+def write_todos(todos_arg,filepath='Files/todos.txt'):
     with open(filepath, 'w') as file_local:
         file_local.writelines(todos_arg)
 
@@ -21,13 +21,13 @@ while True:
 
         # file handling can be replaced with a with-context manager
         # this will ensure file is closed on completion of required actions
-        todos = get_todos('Files/todos.txt')
+        todos = get_todos()
 
         todos.append(todo)
 
-        write_todos('Files/todos.txt', todos)
+        write_todos(todos, 'Files/todos.txt') # order matters, else specify which arg is being passed.
     elif 'show' in user_action:
-        todos = get_todos('Files/todos.txt')
+        todos = get_todos()
 
         # new_todos = []
 
@@ -47,25 +47,25 @@ while True:
             number = int(user_action[5:])
             number -= 1
 
-            todos = get_todos('Files/todos.txt')
+            todos = get_todos()
 
             new_todo = input("Enter new todo: ")
             todos[number] = new_todo + '\n'
 
-            write_todos('Files/todos.txt', todos)
+            write_todos(todos)
         except ValueError:
             print("Your command is not valid.")
             continue
     elif user_action.startswith('complete'):
         try:
-            todos = get_todos('Files/todos.txt')
+            todos = get_todos()
 
             number = int(user_action[9:])
             number -= 1
             todo_to_remove = todos[number].strip('\n')
             todos.pop(number)
 
-            write_todos('Files/todos.txt', todos)
+            write_todos(todos)
 
             print(f"To do {todo_to_remove} was removed from list.")
         except IndexError:
