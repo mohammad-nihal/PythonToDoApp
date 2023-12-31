@@ -1,5 +1,9 @@
 clean
-run
-throw
+dance
+throw far
 added from gui
 master python
+jump
+ high
+walk
+new todo to add
