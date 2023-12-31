@@ -1,4 +1,4 @@
-from Functions import functions
+import functions
 import time
 
 # This was added to illustrate doc streams

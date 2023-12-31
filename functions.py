@@ -1,4 +1,7 @@
-def get_todos(filepath='Files/todos.txt'):    #function definition
+FILEPATH='todos.txt'
+
+
+def get_todos(filepath=FILEPATH):    #function definition
     """
     This is a function to get todos from a file.
     And you are looking at an example of doc stream
@@ -8,6 +11,6 @@ def get_todos(filepath='Files/todos.txt'):    #function definition
     return todos_local
 
 
-def write_todos(todos_arg,filepath='Files/todos.txt'):
+def write_todos(todos_arg, filepath=FILEPATH):
     with open(filepath, 'w') as file_local:
         file_local.writelines(todos_arg)

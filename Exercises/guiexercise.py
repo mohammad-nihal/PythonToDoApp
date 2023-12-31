@@ -1,4 +1,4 @@
-from Functions import functions
+import functions
 import PySimpleGUI as sg
 import time
 
@@ -31,7 +31,7 @@ while True:
             todos = functions.get_todos('../Files/todos.txt')
             new_todo = values['todo'] + '\n'
             todos.append(new_todo)
-            functions.write_todos(todos,'../Files/todos.txt')
+            functions.write_todos(todos, '../Files/todos.txt')
             window['todos'].update(values=todos)  #<- point to key of list_box
         case "Edit":
             try:
@@ -41,7 +41,7 @@ while True:
                 todos = functions.get_todos('../Files/todos.txt')
                 index = todos.index(todo_to_edit)
                 todos[index]=new_todo + '\n'
-                functions.write_todos(todos,'../Files/todos.txt')
+                functions.write_todos(todos, '../Files/todos.txt')
                 window['todos'].update(values=todos)  #<- point to key of list_box
             except IndexError:
                 sg.popup("Please select an item first",
@@ -52,7 +52,7 @@ while True:
 
                 todos = functions.get_todos('../Files/todos.txt')
                 todos.remove(todo_to_complete)
-                functions.write_todos(todos,'../Files/todos.txt')
+                functions.write_todos(todos, '../Files/todos.txt')
                 window['todos'].update(values=todos)  #<- point to key of list_box
                 window['todo'].update(value='')
             except IndexError:
